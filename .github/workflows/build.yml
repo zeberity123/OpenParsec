@@ -29,7 +29,7 @@ jobs:
           set -o pipefail
           xcodebuild archive \
             -project OpenParsec.xcodeproj -scheme OpenParsec \
-            -destination 'generic/platform=iOS' -sdk iphoneos -arch arm64 \
+            -destination 'generic/platform=iOS' -sdk iphoneos \
             -configuration Release -archivePath "$RUNNER_TEMP/OpenParsec.xcarchive" \
             PRODUCT_BUNDLE_IDENTIFIER=com.zeberity123.OpenParsec.Korean \
             DEVELOPMENT_TEAM='' CODE_SIGN_IDENTITY='' \
