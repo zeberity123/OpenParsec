@@ -28,3 +28,8 @@ Temporary Items
 
 ## User settings
 xcuserdata/
+
+# Local build artifacts
+artifacts/
+*.ipa
+*.ipa.sha256
