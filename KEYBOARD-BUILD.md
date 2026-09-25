@@ -51,9 +51,9 @@ instead, disable **Caps Lock to Switch to and from Latin** in iPad Settings >
 General > Keyboard > Hardware Keyboard, if that option is shown. Leave Caps Lock
 assigned to itself in iPadOS Modifier Keys for this app's layer to receive it.
 
-The exact LTBK21 firmware shortcuts could not be verified from a manufacturer
-manual. Try Fn with the printed Esc/F1–F12 keys first; this is a diagnostic trial,
-not a confirmed LTBK21 combination. iPadOS shortcuts/media actions that never
+The user reports that Fn+Esc on the SDIC Korea LTBK21 opens the iPad Home screen.
+The exact firmware shortcuts or an OS-mode switch could not be verified from a
+manufacturer manual. iPadOS shortcuts/media actions that never
 reach OpenParsec cannot be remapped by the app. The Caps layer uses ordinary keys
 instead and does not depend on receiving the keyboard's Fn key.
 
@@ -63,13 +63,14 @@ build translates the language keys explicitly rather than relying on that
 undefined SDK mapping. This is a candidate fix, not proof of the exact cause of
 the LTBK21's reported tilde behavior.
 
-## Build and privacy
+## Build and downloads
 
-Use a **private standalone repository** under `zeberity123`. A GitHub fork of a
-public repository cannot be made private. Keep upstream history and GPL notices.
+This is a public standalone repository derived from `hugeBlack/OpenParsec`, with
+upstream history and GPL notices preserved.
 The workflow builds on a GitHub macOS runner, runs Swift keyboard event tests,
-and uploads a private Actions artifact for 14 days. It does not publish releases
-or an AltStore source. Private macOS jobs consume the account's Actions allowance.
+and uploads an Actions artifact for 14 days. Tested builds can also be downloaded
+from [GitHub Releases](https://github.com/zeberity123/OpenParsec/releases).
+The workflow does not automatically publish releases or an AltStore source.
 
 The IPA is ad-hoc signed for packaging; AltStore supplies device signing. No Apple
 credentials or signing certificates are needed in GitHub. The bundle identifier
@@ -81,7 +82,7 @@ is `com.zeberity123.OpenParsec.Korean`, separate from the upstream installation.
    https://faq.altstore.io/altstore-classic/how-to-install-altstore-windows
 2. Connect and trust the iPad. Install AltStore Classic from AltServer. Enter your
    Apple ID directly in AltServer, and enable Developer Mode on the iPad.
-3. Download and extract the private Actions artifact. Transfer
+3. Download the IPA from Releases, or download and extract an Actions artifact. Transfer
    `OpenParsec-Korean.ipa` to the iPad's Files app.
 4. In AltStore Classic, open **My Apps**, tap **+**, and choose that IPA while
    AltServer is reachable. This is AltStore Classic, not AltStore PAL.

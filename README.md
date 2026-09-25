@@ -1,5 +1,24 @@
 # <p align="center">![icon_transparent.png](OpenParsec/Assets.xcassets/IconTransparent.imageset/icon_transparent.png) ![OpenParsec](OpenParsec/Assets.xcassets/LogoShadow.imageset/logo_shadow.png)</p>
 
+## Korean keyboard edition
+
+This repository contains a community build of [hugeBlack/OpenParsec](https://github.com/hugeBlack/OpenParsec)
+for Korean Bluetooth keyboards connected to an iPad and a Windows host.
+
+- Switch the Windows Korean IME with 한/영, Right Alt, Ctrl+Space, or Shift+Space.
+- Release language-shortcut modifiers immediately so delayed Bluetooth key-up
+  events do not leave Ctrl held while typing.
+- Optionally tap Caps Lock for Esc, or hold Caps Lock with 1–9, 0, minus, or equals
+  for F1–F12. Enable **Settings > Interactivity > Caps Lock as Esc / Fn**, then reconnect.
+
+**[Download the keyboard edition IPA](https://github.com/zeberity123/OpenParsec/releases/tag/keyboard-2026-09-25)**
+and install it with AltStore Classic. See [setup, settings, and device checks](KEYBOARD-BUILD.md).
+Windows Korean Keyboard is enabled by default in this edition; disable it for
+normal Right Alt/AltGr behavior. The Caps Lock mapping is off by default.
+
+The downloads below are the original project's upstream builds and do not include
+this edition's keyboard changes.
+
 OpenParsec is a simple, open-source Parsec client for iOS/iPadOS written in Swift using the SwiftUI framework and the Parsec SDK.
 
 This project is still a major WIP, so apologies for the currently lackluster documentation. I'm also very new to both Swift and SwiftUI so I'm sure there are many places for improvement.

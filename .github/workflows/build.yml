@@ -1,4 +1,4 @@
-name: Private Korean keyboard IPA
+name: Korean keyboard IPA
 
 on:
   workflow_dispatch:
