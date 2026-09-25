@@ -14,6 +14,10 @@ turning this setting off and reconnecting.
 
 - Right Alt and the dedicated Hangul/LANG1 key send one Right Alt tap to Windows.
 - Shift+Space and Ctrl+Space also send a Right Alt tap when delivered to the app.
+  Hardware language shortcuts now release their accompanying modifiers immediately,
+  with no timer or intentional delay. The modifiers stay released until physical
+  key-up, so a keyboard's delayed Ctrl release cannot turn following letters into
+  Ctrl shortcuts. Release and re-press Ctrl/Shift to use a new shortcut after switching.
   iPadOS may still reserve a system shortcut; use Right Alt or the touch button
   if a shortcut switches the iPad's own input source instead.
 - The on-screen **한/영** button sends the same tap without a hardware shortcut.
@@ -25,6 +29,33 @@ turning this setting off and reconnecting.
 - Korean mode takes precedence over `Option Key as Command`. Other shortcuts
   keep their physical modifier keys. Turn Korean mode off for normal Right Alt
   combinations (such as AltGr).
+
+### Esc and F1–F12 on compact keyboards
+
+Enable **Settings > Interactivity > Caps Lock as Esc / Fn** (under Windows Korean
+Keyboard), then reconnect. This optional mapping is off by default and applies
+only while streaming with Windows Korean Keyboard enabled:
+
+| Physical keys | Windows receives |
+| --- | --- |
+| Tap Caps Lock | Esc, on release |
+| Hold Caps Lock + 1–9 | F1–F9 |
+| Hold Caps Lock + 0 | F10 |
+| Hold Caps Lock + minus | F11 |
+| Hold Caps Lock + equals | F12 |
+
+Hold Caps Lock before the number key. Shift/Ctrl/Alt can be added normally:
+Shift+Caps Lock+5 sends Shift+F5. Releasing Caps Lock before the number key is
+supported. Normal Caps Lock is replaced when enabled. If iPadOS changes language
+instead, disable **Caps Lock to Switch to and from Latin** in iPad Settings >
+General > Keyboard > Hardware Keyboard, if that option is shown. Leave Caps Lock
+assigned to itself in iPadOS Modifier Keys for this app's layer to receive it.
+
+The exact LTBK21 firmware shortcuts could not be verified from a manufacturer
+manual. Try Fn with the printed Esc/F1–F12 keys first; this is a diagnostic trial,
+not a confirmed LTBK21 combination. iPadOS shortcuts/media actions that never
+reach OpenParsec cannot be remapped by the app. The Caps layer uses ordinary keys
+instead and does not depend on receiving the keyboard's Fn key.
 
 The upstream translator emits HID 144 for Hangul, but the bundled SDK's
 `ParsecKeycode` does not define LANG1/Hangul. Right Alt (230) is supported. This
@@ -71,6 +102,11 @@ In Windows Notepad, select Korean Microsoft IME. Click into the document:
    ordinary Space, Backspace, Shift+letter, Ctrl+C/V, and the real backtick key.
 5. Disconnect/reconnect Bluetooth, background/resume the app, and reconnect the
    stream while keys are held. Confirm no repeats or modifiers remain stuck.
+6. Tap 한/영 and immediately type, without waiting for Ctrl to release. Also test
+   both release orders for Ctrl+Space/Shift+Space, then re-press Ctrl for Ctrl+C/V.
+7. Enable Caps Lock as Esc / Fn. Test a Caps tap for Esc, Caps+2 for rename (F2),
+   Caps+5 for refresh (F5), and all twelve keys in a key-event viewer. Check
+   Shift+Caps+5, both release orders, and disconnect while a function key is held.
 
 If only the physical language key fails, report whether the touch button works
 and whether enabling `Backtick (~) as 한/영` changes the result. If the touch
